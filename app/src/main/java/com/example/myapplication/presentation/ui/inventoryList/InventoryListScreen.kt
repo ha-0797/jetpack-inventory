@@ -34,20 +34,23 @@ fun InventoryListScreen(state: InventoryListState) {
 @Composable
 private fun InventoryListItem() = Card(Modifier.padding(vertical = 8.dp)) {
     Row(Modifier.padding(8.dp)) {
-        Column {
-            Text(
-                text = "Item name",
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            Text(
-                text = "Item brand",
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-        }
+        NameAndBrand()
         Spacer(modifier = Modifier.weight(1f))
         Text(
             text = "Current Quantity",
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }
+}
+
+@Composable
+private fun NameAndBrand() = Column {
+    Text(
+        text = "Item name",
+        color = MaterialTheme.colorScheme.onSurfaceVariant
+    )
+    Text(
+        text = "Item brand",
+        color = MaterialTheme.colorScheme.onSurfaceVariant
+    )
 }
