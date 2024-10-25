@@ -13,7 +13,7 @@ class InventoryItemRepositoryImpl(
     private val _inventoryItems = MutableStateFlow<List<InventoryItem>>(listOf())
     override val inventoryItems = _inventoryItems.asStateFlow()
 
-    override fun getInventoryItems() {
+    override suspend fun getInventoryItems() {
         _inventoryItems.value = remoteDataSource.getInventoryItems().map(::toInventoryItem)
     }
 }

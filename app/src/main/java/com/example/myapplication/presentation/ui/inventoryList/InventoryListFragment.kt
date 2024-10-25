@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.runtime.collectAsState
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
@@ -22,7 +23,8 @@ class InventoryListFragment : Fragment(R.layout.fragment_first) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ) = composableContent {
-        InventoryListScreen(InventoryListState(listOf("", "")))
+        val state = viewModel.state.collectAsState(InventoryListState())
+        InventoryListScreen(state.value)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

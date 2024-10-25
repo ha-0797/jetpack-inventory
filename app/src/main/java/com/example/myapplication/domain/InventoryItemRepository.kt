@@ -7,5 +7,5 @@ interface InventoryItemRepository {
 
     val inventoryItems: StateFlow<List<InventoryItem>>
 
-    fun getInventoryItems()
+    suspend fun getInventoryItems()
 }
