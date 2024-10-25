@@ -18,11 +18,8 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun InventoryListScreen(state: InventoryListState) {
-    val listState = rememberScrollState()
     LazyColumn(
-        modifier = Modifier
-            .padding(16.dp)
-            .verticalScroll(listState)
+        modifier = Modifier.padding(16.dp)
     ) {
         items(state.listItems) {
             InventoryListItem()

@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-}
+    id("com.google.gms.google-services")}
 
 android {
     namespace = "com.example.myapplication"
@@ -59,6 +59,9 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.constraintlayout.compose)
     implementation(libs.androidx.recyclerview)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.common.ktx)
+    implementation(libs.firebase.firestore.ktx)
 
 
     testImplementation(libs.junit)
