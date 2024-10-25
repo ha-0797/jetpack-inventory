@@ -18,6 +18,6 @@ class InventoryListFragment : Fragment(R.layout.fragment_first) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ) = composableContent {
-        InventoryListScreen()
+        InventoryListScreen(InventoryListState(listOf("", "")))
     }
 }
