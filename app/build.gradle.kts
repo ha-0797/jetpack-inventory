@@ -33,7 +33,11 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.14"
+    }
     buildFeatures {
+        compose = true
         viewBinding = true
     }
 }
@@ -46,6 +50,17 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.material)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.text.google.fonts)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.constraintlayout.compose)
+    implementation(libs.androidx.recyclerview)
+
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
