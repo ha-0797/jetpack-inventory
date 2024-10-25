@@ -1,6 +1,7 @@
 package com.example.myapplication.data
 
-interface FirebaseConnector {
+import com.example.myapplication.data.models.InventoryItemResponse
 
-    fun getInventoryItems()
+interface FirebaseConnector {
+    fun getInventoryItems(): List<InventoryItemResponse>
 }
