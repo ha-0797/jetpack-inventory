@@ -1,11 +1,11 @@
 package com.example.myapplication.data
 
-import com.google.firebase.Firebase
-import com.google.firebase.firestore.firestore
+import com.google.firebase.firestore.FirebaseFirestore
+import javax.inject.Inject
 
-class FirebaseConnectorImpl(): FirebaseConnector {
+class FirebaseConnectorImpl @Inject constructor(private val firestore: FirebaseFirestore) :
+    FirebaseConnector {
     override fun getInventoryItems() {
-        val firestore = Firebase.firestore
         firestore.collection("/ShoppingItems").get().addOnSuccessListener {
         }.addOnFailureListener {
         }

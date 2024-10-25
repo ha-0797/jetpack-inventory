@@ -3,6 +3,8 @@ agp = "8.7.1"
 constraintlayoutCompose = "1.0.1"
 firebaseBom = "33.5.1"
 firebaseFirestoreKtx = "25.1.1"
+hiltAndroid = "2.51.1"
+hiltAndroidCompiler = "2.51.1"
 kotlin = "1.9.24"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -35,6 +37,8 @@ androidx-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview
     firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-database = { module = "com.google.firebase:firebase-database" }
 firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
