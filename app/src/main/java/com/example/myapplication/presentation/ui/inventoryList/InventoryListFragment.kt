@@ -17,7 +17,7 @@ class InventoryListFragment : Fragment(R.layout.fragment_first) {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) = composableContent(false) {
+    ) = composableContent {
         InventoryListScreen()
     }
 }
