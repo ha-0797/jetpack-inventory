@@ -1,18 +1,20 @@
 package com.example.myapplication.domain.di
 
-import com.example.myapplication.data.di.RemoteDataModule
+import com.example.myapplication.domain.InventoryItemRepository
 import com.example.myapplication.domain.InventoryItemRepositoryImpl
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 @Module
-@InstallIn(ActivityComponent::class)
-object DomainModule {
+@InstallIn(SingletonComponent::class)
+abstract class DomainModule {
 
-    @Provides
-    fun provideInventoryItemRepository() = InventoryItemRepositoryImpl(
-        RemoteDataModule.provideFirebaseConnector()
-    )
+    @Singleton
+    @Binds
+    abstract fun bindsInventoryItemRepository(
+        inventoryItemRepositoryImpl: InventoryItemRepositoryImpl
+    ): InventoryItemRepository
 }

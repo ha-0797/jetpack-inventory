@@ -11,13 +11,13 @@ import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentFirstBinding
 import com.example.myapplication.presentation.utilities.composableContent
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.scopes.FragmentScoped
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
+@AndroidEntryPoint
 class InventoryListFragment : Fragment(R.layout.fragment_first) {
 
-    private val viewModel: InventoryListViewModel by viewModels<InventoryListViewModel>()
+    private val viewModel: InventoryListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

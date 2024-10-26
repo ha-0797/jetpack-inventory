@@ -5,10 +5,10 @@ import com.example.myapplication.domain.models.InventoryItem
 import com.example.myapplication.domain.models.toInventoryItem
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import javax.inject.Inject
 
-class InventoryItemRepositoryImpl(
-    private val remoteDataSource: FirebaseConnector
-) : InventoryItemRepository {
+class InventoryItemRepositoryImpl @Inject constructor(private var remoteDataSource: FirebaseConnector) :
+    InventoryItemRepository {
 
     private val _inventoryItems = MutableStateFlow<List<InventoryItem>>(listOf())
     override val inventoryItems = _inventoryItems.asStateFlow()

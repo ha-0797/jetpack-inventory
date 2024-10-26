@@ -3,7 +3,6 @@ package com.example.myapplication.presentation.ui.inventoryList
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.domain.InventoryItemRepository
-import com.example.myapplication.domain.di.DomainModule
 import com.example.myapplication.domain.models.InventoryItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,17 +12,16 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class InventoryListViewModel @Inject constructor() : ViewModel() {
-
-    private var firebaseConnector: InventoryItemRepository =
-        DomainModule.provideInventoryItemRepository()
+class InventoryListViewModel @Inject constructor(
+    private val inventoryItemRepository: InventoryItemRepository
+) : ViewModel() {
 
     private val _state = MutableStateFlow(InventoryListState())
     val state = _state.asStateFlow()
 
     init {
         viewModelScope.launch {
-            firebaseConnector.inventoryItems.collect(::collectInventoryItems)
+            inventoryItemRepository.inventoryItems.collect(::collectInventoryItems)
         }
     }
 
@@ -32,6 +30,6 @@ class InventoryListViewModel @Inject constructor() : ViewModel() {
     }
 
     fun foo() = viewModelScope.launch {
-        firebaseConnector.getInventoryItems()
+        inventoryItemRepository.getInventoryItems()
     }
 }
