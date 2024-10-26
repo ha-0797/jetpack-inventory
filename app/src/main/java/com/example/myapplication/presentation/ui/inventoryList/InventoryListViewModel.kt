@@ -26,10 +26,13 @@ class InventoryListViewModel @Inject constructor(
     }
 
     private fun collectInventoryItems(items: List<InventoryItem>) {
-        _state.update { it.copy(listItems = items) }
+        _state.update { it.copy(isLoading = false, listItems = items) }
     }
 
     fun foo() = viewModelScope.launch {
+        _state.update { it.copy(isLoading = true) }
         inventoryItemRepository.getInventoryItems()
+    }.invokeOnCompletion {
+        _state.update { it.copy(isLoading = false) }
     }
 }
