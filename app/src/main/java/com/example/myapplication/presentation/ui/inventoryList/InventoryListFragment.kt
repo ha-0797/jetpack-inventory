@@ -17,7 +17,7 @@ class InventoryListFragment : Fragment(R.layout.fragment_first) {
     private val viewModel: InventoryListViewModel by viewModels()
 
     private val callbacks = object : InventoryListScreenInterface {
-        override fun onPullToRefresh() { viewModel.foo() }
+        override fun onPullToRefresh() { viewModel.getInventoryItems() }
     }
 
     override fun onCreateView(
@@ -30,6 +30,6 @@ class InventoryListFragment : Fragment(R.layout.fragment_first) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.foo()
+        viewModel.getInventoryItems()
     }
 }
