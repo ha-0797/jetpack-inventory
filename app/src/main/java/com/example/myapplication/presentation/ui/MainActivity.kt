@@ -32,13 +32,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.fab.setOnClickListener { _ -> viewModel.openAddItemFragment() }
-        viewModel.events.observe(this, ::observeEvents)
     }
-
-    private fun observeEvents(events: MainEvents) =
-        mainEventsCallbacks(events, viewModel.openAddItemFragment())
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
