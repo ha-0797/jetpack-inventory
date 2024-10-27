@@ -27,9 +27,9 @@ class MainViewModel @Inject constructor() : ViewModel() {
     private val _events = MutableSharedFlow<MainEvents>()
     val events = _events.asSharedFlow()
 
-    fun openAddItemBottomSheet() {
+    fun openAddItemFragment() {
         viewModelScope.launch {
-            _events.emit(MainEvents.NewItem)
+            _events.emit(NewItem)
         }
     }
 }

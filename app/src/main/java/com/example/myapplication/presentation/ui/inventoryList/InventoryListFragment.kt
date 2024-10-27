@@ -12,7 +12,7 @@ import com.example.myapplication.presentation.utilities.composableContent
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class InventoryListFragment : Fragment(R.layout.fragment_first) {
+class InventoryListFragment : Fragment(R.layout.fragment_inventory_list) {
 
     private val viewModel: InventoryListViewModel by viewModels()
 
